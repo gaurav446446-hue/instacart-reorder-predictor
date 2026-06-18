@@ -206,37 +206,34 @@ with tab1:
             
             # Display top 15 recommendations
             top_n = 15
-            top_recommendations = recommendations_df.head(top_n)
-            
-            st.write(f"**Top {top_n} Products Most Likely to be Reordered:**")
-            st.write(f"*Suggested Order Quantity: {suggested_quantity} units per product*")
-            st.markdown("---")
-            
-            # Display in a more compact format with columns
-            for idx in range(0, len(top_recommendations), 2):
-                
-                rec1 = top_recommendations.iloc[idx]
-               
-                status1 = "✅" if rec1['will_reorder'] else "❌"
-                st.write(f"**{idx + 1}. {status1} {rec1['product_name']}**")
-    
-                # This keeps the sub-details (Prob, Qty, Reorder) neatly arranged horizontally
-                c1, c2, c3 = st.columns([2, 1, 1])
-                with c1:
-                 st.write(f"Prob: {rec1['probability'] * 100:.1f}%")
-                 with c2:
-                  st.write(f"Qty: {suggested_quantity}")
-                  with c3:
-                   if rec1['will_reorder']:
-                    st.write("✓ Reorder")
-            else:
-             st.write("Maybe")
-            st.markdown("---")
-            
-            # Summary stats
-            reorder_count = len(top_recommendations[top_recommendations['will_reorder']])
-            st.write(f"**Summary:** {reorder_count} out of {top_n} products are likely to be reordered by this user.")
+           top_recommendations = recommendations_df.head(top_n)
 
+           st.write(f"**Top {top_n} Products Most Likely to be Reordered:**")
+           st.write(f"*Suggested Order Quantity: {suggested_quantity} units per product*")
+           st.markdown("---")
+
+          for idx in range(len(top_recommendations)):
+             rec = top_recommendations.iloc[idx]
+             status = "✅" if rec["will_reorder"] else "❌"
+
+            st.write(f"**{idx + 1}. {status} {rec['product_name']}**")
+
+          c1, c2, c3 = st.columns([2, 1, 1])
+          with c1:
+            st.write(f"Prob: {rec['probability'] * 100:.1f}%")
+         with c2:
+             st.write(f"Qty: {suggested_quantity}")
+         with c3:
+             if rec["will_reorder"]:
+                  st.write("✓ Reorder")
+          else:
+            st.write("Maybe")
+
+    st.markdown("---")
+
+# Summary stats
+reorder_count = len(top_recommendations[top_recommendations['will_reorder']])
+st.write(f"**Summary:** {reorder_count} out of {top_n} products are likely to be reordered by this user.")
 
 # ============ METHOD 2: SINGLE PRODUCT EVALUATION ============
 with tab2:
