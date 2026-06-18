@@ -226,7 +226,7 @@ with tab1:
                 with c3:
                     if rec["will_reorder"]:
                        st.write("✓ Reorder")
-                   else:
+                    else:
                        st.write("Maybe")
 
                 st.markdown("---")
