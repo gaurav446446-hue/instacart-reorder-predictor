@@ -232,8 +232,8 @@ with tab1:
                 st.markdown("---")
 
             # Summary stats
-             reorder_count = len(top_recommendations[top_recommendations['will_reorder']])
-             st.write(f"**Summary:** {reorder_count} out of {top_n} products are likely to be reordered by this user.")
+            reorder_count = len(top_recommendations[top_recommendations['will_reorder']])
+            st.write(f"**Summary:** {reorder_count} out of {top_n} products are likely to be reordered by this user.")
 
 # ============ METHOD 2: SINGLE PRODUCT EVALUATION ============
 with tab2:
