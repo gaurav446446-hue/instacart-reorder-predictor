@@ -218,7 +218,7 @@ with tab1:
 
                st.write(f"**{idx + 1}. {status} {rec['product_name']}**")
 
-              c1, c2, c3 = st.columns([2, 1, 1])
+            c1, c2, c3 = st.columns([2, 1, 1])
             with c1:
              st.write(f"Prob: {rec['probability'] * 100:.1f}%")
             with c2:
