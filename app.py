@@ -91,7 +91,7 @@ st.title("🛒 Instacart Customer Reorder Predictor")
 st.markdown("---")
 
 # Display model accuracy score
-st.metric("Model Accuracy Score", "XX.X%")
+st.metric("Model Accuracy Score", "71.13%")
 
 # Load resources
 scaler = load_scaler()
